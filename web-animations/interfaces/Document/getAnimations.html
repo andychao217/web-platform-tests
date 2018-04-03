@@ -39,6 +39,8 @@ test(t => {
   assert_array_equals(document.getAnimations(),
                       [ anim1, anim2 ],
                       'getAnimations() returns running animations');
+  anim1.finish();
+  anim2.finish();
 }, 'Test the order of document.getAnimations with script generated animations')
 
 test(t => {
@@ -49,6 +51,7 @@ test(t => {
   assert_equals(document.getAnimations().length, 0,
                 'document.getAnimations() only returns animations targeting ' +
                 'elements in this document');
+  anim.finish();
 }, 'Test document.getAnimations with null target');
 
 </script>
